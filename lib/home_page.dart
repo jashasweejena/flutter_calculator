@@ -6,7 +6,8 @@ class HomePage extends StatefulWidget{
 }
 
 class HomePageState extends State<HomePage>{
-  var num1 = 0, num2 = 0, sum = 0;
+  var num1 = 0, num2 = 0;
+  double sum = 0.0;
 
   TextEditingController t1 = new TextEditingController(text: "0");
   TextEditingController t2 = new TextEditingController(text: "0");
@@ -15,7 +16,7 @@ class HomePageState extends State<HomePage>{
     setState(() {
           num1 = int.parse(t1.text);
           num2 = int.parse(t2.text);
-          sum = num1 + num2;
+          sum = (num1 + num2.toDouble());
           t1 = new TextEditingController(text: sum.toString());
           t2 = new TextEditingController(text: "0");
         });
@@ -25,7 +26,7 @@ class HomePageState extends State<HomePage>{
     setState(() {
           num1 = int.parse(t1.text);
           num2 = int.parse(t2.text);
-          sum = (num1 - num2).abs();
+          sum = (num1 - num2).abs().toDouble();
           t1 = new TextEditingController(text: sum.toString());
           t2 = new TextEditingController(text: "0");
         });
@@ -34,7 +35,7 @@ void _multiplyNumbers(){
     setState(() {
           num1 = int.parse(t1.text);
           num2 = int.parse(t2.text);
-          sum = num1 * num2;
+          sum = (num1 * num2).toDouble();
           t1 = new TextEditingController(text: sum.toString());
           t2 = new TextEditingController(text: "0");
         });
@@ -45,10 +46,10 @@ void _divideNumbers(){
           num2 = int.parse(t2.text);
 
           if(num2 != 0){
-          sum = num1 ~/ num2;
+          sum = num1.toDouble() / num2.toDouble();
           }
           else{
-            sum = 0;
+            sum = 0.0;
           } //To avoid division by zero exception.
           t1 = new TextEditingController(text: sum.toString());
           t2 = new TextEditingController(text: "0");
